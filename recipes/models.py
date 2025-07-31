@@ -3,7 +3,7 @@ from django.db import models
 class Recipe(models.Model):
     title = models.CharField(max_length=200)
     ingredients = models.TextField()
-    intrucions = models.TextField()
+    instructions = models.TextField()
     cooking_time = models.IntegerField(help_text='in minutes')
     
     def __str__(self):
