@@ -1,14 +1,10 @@
-#recipes/urls.py
-from xml.etree.ElementInclude import include
-from django.conf import settings
+# recipes/urls.py
 from django.urls import path
 from . import views
-from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.recipe_list, name='recipes_list'),
-    path('recipes/', include('recipes.urls')),
+    path('', views.recipe_list, name='recipe_list'),
+    # Esta linha é crucial: define a URL e nomeia ela como 'recipe_detail'
+    path('<int:pk>/', views.recipe_detail, name='recipe_detail'),
+    # Outras URLs do seu aplicativo...
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
